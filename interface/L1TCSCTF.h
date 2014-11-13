@@ -118,6 +118,68 @@ class L1TCSCTF : public edm::EDAnalyzer {
   MonitorElement* me42_lctGblEta;  
 
 
+  MonitorElement* lct_MEplus11;
+  MonitorElement* lct_MEplus12;
+  MonitorElement* lct_MEplus13;
+  MonitorElement* lct_MEplus21;
+  MonitorElement* lct_MEplus22;
+  MonitorElement* lct_MEplus31;
+  MonitorElement* lct_MEplus32;
+  MonitorElement* lct_MEplus41;
+  MonitorElement* lct_MEplus42;
+
+  MonitorElement* lct_MEminus11;
+  MonitorElement* lct_MEminus12;
+  MonitorElement* lct_MEminus13;
+  MonitorElement* lct_MEminus21;
+  MonitorElement* lct_MEminus22;
+  MonitorElement* lct_MEminus31;
+  MonitorElement* lct_MEminus32;
+  MonitorElement* lct_MEminus41;
+  MonitorElement* lct_MEminus42;
+
+
+  MonitorElement* csc_strip_MEplus11;
+  MonitorElement* csc_strip_MEplus12;
+  MonitorElement* csc_strip_MEplus13;
+  MonitorElement* csc_strip_MEplus21;
+  MonitorElement* csc_strip_MEplus22;
+  MonitorElement* csc_strip_MEplus31;
+  MonitorElement* csc_strip_MEplus32;
+  MonitorElement* csc_strip_MEplus41;
+  MonitorElement* csc_strip_MEplus42;
+
+  MonitorElement* csc_strip_MEminus11;
+  MonitorElement* csc_strip_MEminus12;
+  MonitorElement* csc_strip_MEminus13;
+  MonitorElement* csc_strip_MEminus21;
+  MonitorElement* csc_strip_MEminus22;
+  MonitorElement* csc_strip_MEminus31;
+  MonitorElement* csc_strip_MEminus32;
+  MonitorElement* csc_strip_MEminus41;
+  MonitorElement* csc_strip_MEminus42;
+
+  MonitorElement* csc_wire_MEplus11;
+  MonitorElement* csc_wire_MEplus12;
+  MonitorElement* csc_wire_MEplus13;
+  MonitorElement* csc_wire_MEplus21;
+  MonitorElement* csc_wire_MEplus22;
+  MonitorElement* csc_wire_MEplus31;
+  MonitorElement* csc_wire_MEplus32;
+  MonitorElement* csc_wire_MEplus41;
+  MonitorElement* csc_wire_MEplus42;
+
+  MonitorElement* csc_wire_MEminus11;
+  MonitorElement* csc_wire_MEminus12;
+  MonitorElement* csc_wire_MEminus13;
+  MonitorElement* csc_wire_MEminus21;
+  MonitorElement* csc_wire_MEminus22;
+  MonitorElement* csc_wire_MEminus31;
+  MonitorElement* csc_wire_MEminus32;
+  MonitorElement* csc_wire_MEminus41;
+  MonitorElement* csc_wire_MEminus42;
+
+
 
   // 1-> 6 plus endcap
   // 7->12 minus endcap

@@ -477,6 +477,287 @@ void L1TCSCTF::beginJob(void)
 
 
 
+
+  lct_MEplus11= dbe->book2D("lct_MEplus11", "lct_MEplus11", 36,1,37, 12,1,13);
+  lct_MEplus11->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus11->setAxisTitle("ME+1/1", 1);
+  lct_MEplus12= dbe->book2D("lct_MEplus12", "lct_MEplus12", 36,1,37, 12,1,13);
+  lct_MEplus12->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus12->setAxisTitle("ME+1/2", 1);
+  lct_MEplus13= dbe->book2D("lct_MEplus13", "lct_MEplus13", 36,1,37, 12,1,13);
+  lct_MEplus13->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus13->setAxisTitle("ME+1/3", 1);
+  lct_MEplus21= dbe->book2D("lct_MEplus21", "lct_MEplus21", 18,1,19, 12,1,13);
+  lct_MEplus21->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus21->setAxisTitle("ME+2/1", 1);
+  lct_MEplus22= dbe->book2D("lct_MEplus22", "lct_MEplus22", 36,1,37, 12,1,13);
+  lct_MEplus22->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus22->setAxisTitle("ME+2/2", 1);
+  lct_MEplus31= dbe->book2D("lct_MEplus31", "lct_MEplus31", 18,1,19, 12,1,13);
+  lct_MEplus31->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus31->setAxisTitle("ME+3/1", 1);
+  lct_MEplus32= dbe->book2D("lct_MEplus32", "lct_MEplus32", 36,1,37, 12,1,13);
+  lct_MEplus32->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus32->setAxisTitle("ME+3/2", 1);
+  lct_MEplus41= dbe->book2D("lct_MEplus41", "lct_MEplus41", 18,1,19, 12,1,13);
+  lct_MEplus41->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus41->setAxisTitle("ME+4/1", 1);
+  lct_MEplus42= dbe->book2D("lct_MEplus42", "lct_MEplus42", 36,1,37, 12,1,13);
+  lct_MEplus42->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEplus42->setAxisTitle("ME+4/2", 1);
+
+  lct_MEminus11= dbe->book2D("lct_MEminus11", "lct_MEminus11", 36,1,37, 12,1,13);
+  lct_MEminus11->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus11->setAxisTitle("ME-1/1", 1);
+  lct_MEminus12= dbe->book2D("lct_MEminus12", "lct_MEminus12", 36,1,37, 12,1,13);
+  lct_MEminus12->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus12->setAxisTitle("ME-1/2", 1);
+  lct_MEminus13= dbe->book2D("lct_MEminus13", "lct_MEminus13", 36,1,37, 12,1,13);
+  lct_MEminus13->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus13->setAxisTitle("ME-1/3", 1);
+  lct_MEminus21= dbe->book2D("lct_MEminus21", "lct_MEminus21", 18,1,19, 12,1,13);
+  lct_MEminus21->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus21->setAxisTitle("ME-2/1", 1);
+  lct_MEminus22= dbe->book2D("lct_MEminus22", "lct_MEminus22", 36,1,37, 12,1,13);
+  lct_MEminus22->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus22->setAxisTitle("ME-2/2", 1);
+  lct_MEminus31= dbe->book2D("lct_MEminus31", "lct_MEminus31", 18,1,19, 12,1,13);
+  lct_MEminus31->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus31->setAxisTitle("ME-3/1", 1);
+  lct_MEminus32= dbe->book2D("lct_MEminus32", "lct_MEminus32", 36,1,37, 12,1,13);
+  lct_MEminus32->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus32->setAxisTitle("ME-3/2", 1);
+  lct_MEminus41= dbe->book2D("lct_MEminus41", "lct_MEminus41", 18,1,19, 12,1,13);
+  lct_MEminus41->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus41->setAxisTitle("ME-4/1", 1);
+  lct_MEminus42= dbe->book2D("lct_MEminus42", "lct_MEminus42", 36,1,37, 12,1,13);
+  lct_MEminus42->setAxisTitle("CSCTF LCT BX", 2);
+  lct_MEminus42->setAxisTitle("ME-4/2", 1);
+
+ 
+
+  csc_strip_MEplus11= dbe->book2D("csc_strip_MEplus11", "csc_strip_MEplus11", 36,1,37, 223,0,223);
+  csc_strip_MEplus11->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus11->setAxisTitle("ME+1/1", 1);
+  csc_strip_MEplus12= dbe->book2D("csc_strip_MEplus12", "csc_strip_MEplus12", 36,1,37, 223,0,223);
+  csc_strip_MEplus12->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus12->setAxisTitle("ME+1/2", 1);
+  csc_strip_MEplus13= dbe->book2D("csc_strip_MEplus13", "csc_strip_MEplus13", 36,1,37, 223,0,223);
+  csc_strip_MEplus13->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus13->setAxisTitle("ME+1/3", 1);
+  csc_strip_MEplus21= dbe->book2D("csc_strip_MEplus21", "csc_strip_MEplus21", 18,1,19, 223,0,223);
+  csc_strip_MEplus21->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus21->setAxisTitle("ME+2/1", 1);
+  csc_strip_MEplus22= dbe->book2D("csc_strip_MEplus22", "csc_strip_MEplus22", 36,1,37, 223,0,223);
+  csc_strip_MEplus22->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus22->setAxisTitle("ME+2/2", 1);
+  csc_strip_MEplus31= dbe->book2D("csc_strip_MEplus31", "csc_strip_MEplus31", 18,1,19, 223,0,223);
+  csc_strip_MEplus31->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus31->setAxisTitle("ME+3/1", 1);
+  csc_strip_MEplus32= dbe->book2D("csc_strip_MEplus32", "csc_strip_MEplus32", 36,1,37, 223,0,223);
+  csc_strip_MEplus32->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus32->setAxisTitle("ME+3/2", 1);
+  csc_strip_MEplus41= dbe->book2D("csc_strip_MEplus41", "csc_strip_MEplus41", 18,1,19, 223,0,223);
+  csc_strip_MEplus41->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus41->setAxisTitle("ME+4/1", 1);
+  csc_strip_MEplus42= dbe->book2D("csc_strip_MEplus42", "csc_strip_MEplus42", 36,1,37, 223,0,223);
+  csc_strip_MEplus42->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEplus42->setAxisTitle("ME+4/2", 1);
+
+  csc_strip_MEminus11= dbe->book2D("csc_strip_MEminus11", "csc_strip_MEminus11", 36,1,37, 223,0,223);
+  csc_strip_MEminus11->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus11->setAxisTitle("ME-1/1", 1);
+  csc_strip_MEminus12= dbe->book2D("csc_strip_MEminus12", "csc_strip_MEminus12", 36,1,37, 223,0,223);
+  csc_strip_MEminus12->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus12->setAxisTitle("ME-1/2", 1);
+  csc_strip_MEminus13= dbe->book2D("csc_strip_MEminus13", "csc_strip_MEminus13", 36,1,37, 223,0,223);
+  csc_strip_MEminus13->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus13->setAxisTitle("ME-1/3", 1);
+  csc_strip_MEminus21= dbe->book2D("csc_strip_MEminus21", "csc_strip_MEminus21", 18,1,19, 223,0,223);
+  csc_strip_MEminus21->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus21->setAxisTitle("ME-2/1", 1);
+  csc_strip_MEminus22= dbe->book2D("csc_strip_MEminus22", "csc_strip_MEminus22", 36,1,37, 223,0,223);
+  csc_strip_MEminus22->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus22->setAxisTitle("ME-2/2", 1);
+  csc_strip_MEminus31= dbe->book2D("csc_strip_MEminus31", "csc_strip_MEminus31", 18,1,19, 223,0,223);
+  csc_strip_MEminus31->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus31->setAxisTitle("ME-3/1", 1);
+  csc_strip_MEminus32= dbe->book2D("csc_strip_MEminus32", "csc_strip_MEminus32", 36,1,37, 223,0,223);
+  csc_strip_MEminus32->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus32->setAxisTitle("ME-3/2", 1);
+  csc_strip_MEminus41= dbe->book2D("csc_strip_MEminus41", "csc_strip_MEminus41", 18,1,19, 223,0,223);
+  csc_strip_MEminus41->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus41->setAxisTitle("ME-4/1", 1);
+  csc_strip_MEminus42= dbe->book2D("csc_strip_MEminus42", "csc_strip_MEminus42", 36,1,37, 223,0,223);
+  csc_strip_MEminus42->setAxisTitle("Cathode HalfStrip", 2);
+  csc_strip_MEminus42->setAxisTitle("ME-4/2", 1);
+
+
+  csc_wire_MEplus11= dbe->book2D("csc_wire_MEplus11", "csc_wire_MEplus11", 36,1,37, 112,0,112);
+  csc_wire_MEplus11->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus11->setAxisTitle("ME+1/1", 1);
+  csc_wire_MEplus12= dbe->book2D("csc_wire_MEplus12", "csc_wire_MEplus12", 36,1,37, 112,0,112);
+  csc_wire_MEplus12->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus12->setAxisTitle("ME+1/2", 1);
+  csc_wire_MEplus13= dbe->book2D("csc_wire_MEplus13", "csc_wire_MEplus13", 36,1,37, 112,0,112);
+  csc_wire_MEplus13->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus13->setAxisTitle("ME+1/3", 1);
+  csc_wire_MEplus21= dbe->book2D("csc_wire_MEplus21", "csc_wire_MEplus21", 18,1,19, 112,0,112);
+  csc_wire_MEplus21->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus21->setAxisTitle("ME+2/1", 1);
+  csc_wire_MEplus22= dbe->book2D("csc_wire_MEplus22", "csc_wire_MEplus22", 36,1,37, 112,0,112);
+  csc_wire_MEplus22->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus22->setAxisTitle("ME+2/2", 1);
+  csc_wire_MEplus31= dbe->book2D("csc_wire_MEplus31", "csc_wire_MEplus31", 18,1,19, 112,0,112);
+  csc_wire_MEplus31->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus31->setAxisTitle("ME+3/1", 1);
+  csc_wire_MEplus32= dbe->book2D("csc_wire_MEplus32", "csc_wire_MEplus32", 36,1,37, 112,0,112);
+  csc_wire_MEplus32->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus32->setAxisTitle("ME+3/2", 1);
+  csc_wire_MEplus41= dbe->book2D("csc_wire_MEplus41", "csc_wire_MEplus41", 18,1,19, 112,0,112);
+  csc_wire_MEplus41->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus41->setAxisTitle("ME+4/1", 1);
+  csc_wire_MEplus42= dbe->book2D("csc_wire_MEplus42", "csc_wire_MEplus42", 36,1,37, 112,0,112);
+  csc_wire_MEplus42->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEplus42->setAxisTitle("ME+4/2", 1);
+
+  csc_wire_MEminus11= dbe->book2D("csc_wire_MEminus11", "csc_wire_MEminus11", 36,1,37, 112,0,112);
+  csc_wire_MEminus11->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus11->setAxisTitle("ME-1/1", 1);
+  csc_wire_MEminus12= dbe->book2D("csc_wire_MEminus12", "csc_wire_MEminus12", 36,1,37, 112,0,112);
+  csc_wire_MEminus12->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus12->setAxisTitle("ME-1/2", 1);
+  csc_wire_MEminus13= dbe->book2D("csc_wire_MEminus13", "csc_wire_MEminus13", 36,1,37, 112,0,112);
+  csc_wire_MEminus13->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus13->setAxisTitle("ME-1/3", 1);
+  csc_wire_MEminus21= dbe->book2D("csc_wire_MEminus21", "csc_wire_MEminus21", 18,1,19, 112,0,112);
+  csc_wire_MEminus21->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus21->setAxisTitle("ME-2/1", 1);
+  csc_wire_MEminus22= dbe->book2D("csc_wire_MEminus22", "csc_wire_MEminus22", 36,1,37, 112,0,112);
+  csc_wire_MEminus22->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus22->setAxisTitle("ME-2/2", 1);
+  csc_wire_MEminus31= dbe->book2D("csc_wire_MEminus31", "csc_wire_MEminus31", 18,1,19, 112,0,112);
+  csc_wire_MEminus31->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus31->setAxisTitle("ME-3/1", 1);
+  csc_wire_MEminus32= dbe->book2D("csc_wire_MEminus32", "csc_wire_MEminus32", 36,1,37, 112,0,112);
+  csc_wire_MEminus32->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus32->setAxisTitle("ME-3/2", 1);
+  csc_wire_MEminus41= dbe->book2D("csc_wire_MEminus41", "csc_wire_MEminus41", 18,1,19, 112,0,112);
+  csc_wire_MEminus41->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus41->setAxisTitle("ME-4/1", 1);
+  csc_wire_MEminus42= dbe->book2D("csc_wire_MEminus42", "csc_wire_MEminus42", 36,1,37, 112,0,112);
+  csc_wire_MEminus42->setAxisTitle("Anode Wiregroup", 2);
+  csc_wire_MEminus42->setAxisTitle("ME-4/2", 1);
+
+
+  for(int cscid = 1; cscid < 37; cscid++){
+	char bxtitle[100];
+	sprintf(bxtitle,"%d", cscid);
+
+	lct_MEplus11 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEplus12 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEplus13 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEplus22 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEplus32 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEplus42 ->setBinLabel(cscid,bxtitle,1);
+
+	lct_MEminus11 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEminus12 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEminus13 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEminus22 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEminus32 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEminus42 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_strip_MEplus11 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEplus12 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEplus13 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEplus22 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEplus32 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEplus42 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_strip_MEminus11 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEminus12 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEminus13 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEminus22 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEminus32 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEminus42 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_wire_MEplus11 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEplus12 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEplus13 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEplus22 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEplus32 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEplus42 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_wire_MEminus11 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEminus12 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEminus13 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEminus22 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEminus32 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEminus42 ->setBinLabel(cscid,bxtitle,1);
+  }
+
+  for(int cscid = 1; cscid < 19; cscid++){
+	char bxtitle[100];
+	sprintf(bxtitle,"%d", cscid);
+
+	lct_MEplus21 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEplus31 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEplus41 ->setBinLabel(cscid,bxtitle,1);
+
+	lct_MEminus21 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEminus31 ->setBinLabel(cscid,bxtitle,1);
+	lct_MEminus41 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_strip_MEplus21 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEplus31 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEplus41 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_strip_MEminus21 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEminus31 ->setBinLabel(cscid,bxtitle,1);
+	csc_strip_MEminus41 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_wire_MEplus21 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEplus31 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEplus41 ->setBinLabel(cscid,bxtitle,1);
+
+	csc_wire_MEminus21 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEminus31 ->setBinLabel(cscid,bxtitle,1);
+	csc_wire_MEminus41 ->setBinLabel(cscid,bxtitle,1);
+
+  }
+
+
+
+
+  for(int ybin=1; ybin<13; ybin++){
+	char ytitle[100];
+	sprintf(ytitle,"%d", ybin);
+	lct_MEplus11->setBinLabel(ybin,ytitle,2);
+	lct_MEplus12->setBinLabel(ybin,ytitle,2);
+	lct_MEplus13->setBinLabel(ybin,ytitle,2);
+	lct_MEplus21->setBinLabel(ybin,ytitle,2);
+	lct_MEplus22->setBinLabel(ybin,ytitle,2);
+	lct_MEplus31->setBinLabel(ybin,ytitle,2);
+	lct_MEplus32->setBinLabel(ybin,ytitle,2);
+	lct_MEplus41->setBinLabel(ybin,ytitle,2);
+	lct_MEplus42->setBinLabel(ybin,ytitle,2);
+
+	lct_MEminus11->setBinLabel(ybin,ytitle,2);
+	lct_MEminus12->setBinLabel(ybin,ytitle,2);
+	lct_MEminus13->setBinLabel(ybin,ytitle,2);
+	lct_MEminus21->setBinLabel(ybin,ytitle,2);
+	lct_MEminus22->setBinLabel(ybin,ytitle,2);
+	lct_MEminus31->setBinLabel(ybin,ytitle,2);
+	lct_MEminus32->setBinLabel(ybin,ytitle,2);
+	lct_MEminus41->setBinLabel(ybin,ytitle,2);
+	lct_MEminus42->setBinLabel(ybin,ytitle,2);
+  }
+
+
+
+
+
 }
 
 
