@@ -1,17 +1,10 @@
 //
 //
 
-
-
-
-
 void plotter(TString file, TString runTag)
 {
 
-    //TString file = "./DQM_V0001_L1T_R000165633.root";
-    //TSTring file = "./DQM_V0001_L1T_R000225461.root";
     TFile *infile = TFile::Open(file, "READ");
-
 
     vector<TString> Project2Dhists;
     Project2Dhists.push_back("CSC_LCT_GblPhi");
@@ -90,30 +83,6 @@ void plotter(TString file, TString runTag)
 
 
     vector<TString> All1Dhists;
-/*
-    All1Dhists.push_back("bx_csc_0_1_1");
-    All1Dhists.push_back("bx_csc_0_1_2");
-    All1Dhists.push_back("bx_csc_0_1_3");
-    All1Dhists.push_back("bx_csc_0_2_1");
-    All1Dhists.push_back("bx_csc_0_2_2");
-    All1Dhists.push_back("bx_csc_0_3_1");
-    All1Dhists.push_back("bx_csc_0_3_2");
-    All1Dhists.push_back("bx_csc_0_4_1");
-    All1Dhists.push_back("bx_csc_0_4_2");
-
-    All1Dhists.push_back("bx_csc_1_1_1");
-    All1Dhists.push_back("bx_csc_1_1_2");
-    All1Dhists.push_back("bx_csc_1_1_3");
-    All1Dhists.push_back("bx_csc_1_2_1");
-    All1Dhists.push_back("bx_csc_1_2_2");
-    All1Dhists.push_back("bx_csc_1_3_1");
-    All1Dhists.push_back("bx_csc_1_3_2");
-    All1Dhists.push_back("bx_csc_1_4_1");
-    All1Dhists.push_back("bx_csc_1_4_2");
-*/
-
-
-
 
     All1Dhists.push_back("CSC_ME11_LCT_Strip");
     All1Dhists.push_back("CSC_ME11_LCT_Wire");
@@ -150,7 +119,6 @@ void plotter(TString file, TString runTag)
     All1Dhists.push_back("CSC_ME_LCT_PackedEta");
     All1Dhists.push_back("CSC_ME_LCT_GblEta");
     All1Dhists.push_back("CSC_ME_LCT_Quality");
-
 
     All1Dhists.push_back("CSC_ME+42_LCT_GblPhi");
     All1Dhists.push_back("CSC_ME-42_LCT_GblPhi");
@@ -224,13 +192,8 @@ void plotter(TString file, TString runTag)
                 TPad* t1 = new TPad("t1","t1", 0.0, 0.0, 1.0, 1.00);
                 t1->Draw();
                 t1->cd();
-                //t1->SetBottomMargin(0.3);
                 t1->SetRightMargin(0.15);
-                //c->Divide(1,2);
                 hist_temp->Draw("col Z TEXT");
-                //hx_->GetXaxis()->SetTitle("Vertices");
-                //hx_->GetYaxis()->SetTitle("<E_{Y}^{miss}>");
-
 		c->SaveAs(All2Dhists[ihist]+".png");
                 c->SaveAs(All2Dhists[ihist]+".pdf");
 
@@ -252,14 +215,9 @@ void plotter(TString file, TString runTag)
                 TPad* t1 = new TPad("t1","t1", 0.0, 0.0, 1.0, 1.00);
                 t1->Draw();
                 t1->cd();
-                //t1->SetBottomMargin(0.3);
                 t1->SetRightMargin(0.15);
-                //c->Divide(1,2);
 		if(All2DHist_ChamberList[ihist].Contains("strip") || All2DHist_ChamberList[ihist].Contains("wire")) hist_temp->Draw("col Z");
                 else hist_temp->Draw("col Z TEXT");
-                //hx_->GetXaxis()->SetTitle("Vertices");
-                //hx_->GetYaxis()->SetTitle("<E_{Y}^{miss}>");
-
 		c->SaveAs(All2DHist_ChamberList[ihist]+".png");
                 c->SaveAs(All2DHist_ChamberList[ihist]+".pdf");
 
@@ -284,11 +242,8 @@ void plotter(TString file, TString runTag)
                 TPad* t1 = new TPad("t1","t1", 0.0, 0.0, 1.0, 1.00);
                 t1->Draw();
                 t1->cd();
-                //t1->SetBottomMargin(0.3);
                 t1->SetRightMargin(0.05);
-                //c->Divide(1,2);
                 hist_2->Draw("hist");
-                //hx_->GetXaxis()->SetTitle("Vertices");
                 hist_2->GetYaxis()->SetTitle("Events");
 		hist_2->SetFillColor(kYellow);
 
@@ -298,9 +253,6 @@ void plotter(TString file, TString runTag)
                 delete c;
 		delete hist_2;
     }
-
-
-
 
 
     infile->Close();
