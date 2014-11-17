@@ -412,6 +412,23 @@ void L1TCSCTF::beginJob(void)
 
 
   // NEW: CSC EVENT LCT PLOTS, Renjie Wang
+  //for all chambers
+  csc_Strip = dbe->book2D("CSC_Strip", "CSC_Strip", 223, 0, 223, 9,0,9);
+  csc_Strip->setAxisTitle("Cathode HalfStrip", 1);
+
+  csc_Wire  = dbe->book2D("CSC_Wire", "CSC_Wire", 112, 0, 112, 9,0,9);
+  csc_Wire->setAxisTitle("Anode Wiregroup", 1);
+
+  csc_lctLocalPhi = dbe->book2D("CSC_LCT_LocalPhi", "CSC_LCT_LocalPhi", 1024,0,1024, 9,0,9);
+  csc_lctLocalPhi ->setAxisTitle("LCT Local #it{#phi}", 1);
+
+  csc_lctPackedPhi = dbe->book2D("CSC_LCT_PackedPhi", "CSC_LCT_PackedPhi", 4096,0,4096, 9,0,9);
+  csc_lctPackedPhi ->setAxisTitle("LCT Packed #it{#phi}",1);
+
+  csc_lctGblPhi = dbe->book2D("CSC_LCT_GblPhi", "CSC_LCT_GblPhi", 200, 0, 2*M_PI, 9,0,9);
+  csc_lctGblPhi ->setAxisTitle("LCT Global #it{#phi}", 1);
+
+
   csctflcts = dbe->book2D("CSCTF_LCT", "CSCTF LCTs", 12,1,13, 18,0,18);
   csctflcts->setAxisTitle("CSCTF LCT BX",1);
   csctflcts->setBinLabel(1,"1",1);
@@ -440,7 +457,13 @@ void L1TCSCTF::beginJob(void)
         if(ihist<=8){
                 csctflcts -> setBinLabel(9-ihist,lcttitle,2);
         }
-        else    csctflcts -> setBinLabel(ihist+1,lcttitle,2);
+        else{	csctflcts -> setBinLabel(ihist+1,lcttitle,2);
+		csc_Strip -> setBinLabel(ihist-8,lcttitle,2);
+                csc_Wire  -> setBinLabel(ihist-8,lcttitle,2);
+                csc_lctLocalPhi -> setBinLabel(ihist-8,lcttitle,2);
+                csc_lctPackedPhi -> setBinLabel(ihist-8,lcttitle,2);
+                csc_lctGblPhi -> setBinLabel(ihist-8,lcttitle,2);
+	}
 
         ihist++;
       }
@@ -1111,6 +1134,71 @@ void L1TCSCTF::analyze(const Event& e, const EventSetup& c)
 	      if (endcap == 0 && station == 3 && ring == 1) { csctflcts -> Fill(bx, 16.5); }
 	      if (endcap == 0 && station == 3 && ring == 2) { csctflcts -> Fill(bx, 17.5); }
 	
+	      //for all chambers
+	      if (station == 0 && ring == 1) { 
+			csc_Strip -> Fill(strip, 0.5); 
+			csc_Wire -> Fill(keyWire, 0.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 0.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 0.5);
+			csc_lctGblPhi  -> Fill(phiG, 0.5);
+	      }
+	      if (station == 0 && ring == 2) { 
+			csc_Strip -> Fill(strip, 1.5); 
+			csc_Wire -> Fill(keyWire, 1.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 1.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 1.5);
+			csc_lctGblPhi  -> Fill(phiG, 1.5);
+	      }
+	      if (station == 0 && ring == 3) { 
+			csc_Strip -> Fill(strip, 2.5); 
+			csc_Wire -> Fill(keyWire, 2.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 2.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 2.5);
+			csc_lctGblPhi  -> Fill(phiG, 2.5);
+	      }
+	      if (station == 1 && ring == 1) { 
+			csc_Strip -> Fill(strip, 3.5); 
+			csc_Wire -> Fill(keyWire, 3.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 3.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 3.5);
+			csc_lctGblPhi  -> Fill(phiG, 3.5);
+	      }
+	      if (station == 1 && ring == 2) { 
+			csc_Strip -> Fill(strip, 4.5); 
+			csc_Wire -> Fill(keyWire, 4.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 4.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 4.5);
+			csc_lctGblPhi  -> Fill(phiG, 4.5);
+	      }
+	      if (station == 2 && ring == 1) { 
+			csc_Strip -> Fill(strip, 5.5); 
+			csc_Wire -> Fill(keyWire, 5.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 5.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 5.5);
+			csc_lctGblPhi  -> Fill(phiG, 5.5);
+	      }
+	      if (station == 2 && ring == 2) { 
+			csc_Strip -> Fill(strip, 6.5); 
+			csc_Wire -> Fill(keyWire, 6.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 6.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 6.5);
+			csc_lctGblPhi  -> Fill(phiG, 6.5);
+	      }
+	      if (station == 3 && ring == 1) { 
+			csc_Strip -> Fill(strip, 7.5); 
+			csc_Wire -> Fill(keyWire, 7.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 7.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 7.5);
+			csc_lctGblPhi  -> Fill(phiG, 7.5);
+	      } 
+	      if (station == 3 && ring == 2) { 
+			csc_Strip -> Fill(strip, 8.5); 
+			csc_Wire -> Fill(keyWire, 8.5); 
+			csc_lctLocalPhi -> Fill(lclPhi.phi_local, 8.5); 
+			csc_lctPackedPhi -> Fill(theStub.phiPacked(), 8.5);
+			csc_lctGblPhi  -> Fill(phiG, 8.5);
+	      }
+
 	      // only for ME1/1
 	      if(station == 0 && ring == 1){
 	      	me11_lctStrip    -> Fill(strip);

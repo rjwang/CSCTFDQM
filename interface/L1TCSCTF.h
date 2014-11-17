@@ -104,7 +104,12 @@ class L1TCSCTF : public edm::EDAnalyzer {
 
   // NEW: CSC EVENT LCT PLOTS, Renjie Wang
   MonitorElement* csctflcts;
-  
+  MonitorElement* csc_Strip;                                                                                                                               
+  MonitorElement* csc_Wire;                                                                                                                                
+  MonitorElement* csc_lctLocalPhi;                                                                                                                         
+  MonitorElement* csc_lctPackedPhi;                                                                                                                        
+  MonitorElement* csc_lctGblPhi;    
+
   // PLOTS SPECIFICALLY FOR ME1/1
   MonitorElement* me11_lctStrip;
   MonitorElement* me11_lctWire;
