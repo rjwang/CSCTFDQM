@@ -11,4 +11,3 @@ LSFJOB*
 # no python init file
 python/__init__.py
 
-Makefile
