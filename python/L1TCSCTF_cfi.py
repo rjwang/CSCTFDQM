@@ -1,7 +1,8 @@
 import FWCore.ParameterSet.Config as cms
 
 l1tCsctf = cms.EDAnalyzer("L1TCSCTF",
-    gmtProducer = cms.InputTag("gtDigis"),
+    #gmtProducer = cms.InputTag("gtDigis"),
+    gmtProducer = cms.InputTag("null"),
 
     statusProducer = cms.InputTag("csctfDigis"),
     outputFile = cms.untracked.string(''),

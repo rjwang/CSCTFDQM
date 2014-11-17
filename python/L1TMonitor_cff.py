@@ -112,7 +112,7 @@ l1tMonitorOnline = cms.Sequence(
                           l1tGmt +
                           l1tGt + 
                           l1ExtraDqmSeq +
-                          l1tBPTX +
+                          ####l1tBPTX +
                           l1tRate +
                           l1tRctSeq +
                           l1tGctSeq

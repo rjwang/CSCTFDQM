@@ -892,6 +892,12 @@ void L1TCSCTF::analyze(const Event& e, const EventSetup& c)
       edm::Handle<CSCCorrelatedLCTDigiCollection> corrlcts;
       e.getByToken(corrlctsToken_, corrlcts);
 
+      std::vector<int> saveEndcaps;
+      std::vector<int> saveStations;
+      std::vector<int> saveRings;
+      std::vector<int> saveCSCIds;
+      std::vector<int> saveStrips;
+
       for(CSCCorrelatedLCTDigiCollection::DigiRangeIterator csc=corrlcts.product()->begin(); csc!=corrlcts.product()->end(); csc++)
         {
           CSCCorrelatedLCTDigiCollection::Range range1 = corrlcts.product()->get((*csc).first);
@@ -983,28 +989,127 @@ void L1TCSCTF::analyze(const Event& e, const EventSetup& c)
 	      float etaG = theStub.etaValue();
               float phiG = fmod( theStub.phiValue()+15.0*M_PI/180+(sector)*60.0*M_PI/180, 2.*M_PI );          
 
+
+              // need to check the duplication,
+              if(saveStations.size()<1){
+                saveEndcaps.push_back(endcap);
+                saveStations.push_back(station);
+                saveRings.push_back(ring);
+                saveCSCIds.push_back(cscId);
+                saveStrips.push_back(strip);
+              }
+              else{
+                bool hasDuplicates(false);
+                for(unsigned int iter=0; iter < saveStations.size(); iter++){
+
+                        if(endcap == saveEndcaps[iter] && station == saveStations[iter] && ring == saveRings[iter]){
+                                if(cscId == saveCSCIds[iter] && strip == saveStrips[iter]) hasDuplicates = true;
+                                if(cscId == saveCSCIds[iter]-1 || cscId == saveCSCIds[iter]+1) hasDuplicates = true;
+                                if(station==0 && (cscId+saveCSCIds[iter]) == 37) hasDuplicates = true;
+                                if(station!=0 && ring==2 && (cscId+saveCSCIds[iter]) == 37) hasDuplicates = true;
+                                if(station!=0 && ring==1 && (cscId+saveCSCIds[iter]) == 19) hasDuplicates = true;
+                        }
+
+                }
+
+                if(hasDuplicates) continue;
+                else {
+                        saveEndcaps.push_back(endcap);
+                        saveStations.push_back(station);
+                        saveRings.push_back(ring);
+                        saveCSCIds.push_back(cscId);                                                                                                       
+                        saveStrips.push_back(strip);                                                                                                       
+                }                                                                                                                                          
+              } 
+
+		//ME1/1
+	      if (station == 0 && ring == 1){
+		int realID = cscId+6*sector+3*subSector;
+		if(realID>36) realID -= 36;
+		if(endcap == 0) { lct_MEplus11  -> Fill(realID,bx); csc_strip_MEplus11  -> Fill(realID,strip); csc_wire_MEplus11  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus11 -> Fill(realID,bx); csc_strip_MEminus11 -> Fill(realID,strip); csc_wire_MEminus11 -> Fill(realID,keyWire); }
+	      }
+		//ME1/2
+	      if (station == 0 && ring == 2){
+		int realID = (cscId-3)+6*sector+3*subSector;
+		if(realID>36) realID -= 36;
+		if(endcap == 0) { lct_MEplus12  -> Fill(realID,bx); csc_strip_MEplus12  -> Fill(realID,strip); csc_wire_MEplus12  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus12 -> Fill(realID,bx); csc_strip_MEminus12 -> Fill(realID,strip); csc_wire_MEminus12 -> Fill(realID,keyWire); }
+	      }
+		//ME1/3
+	      if (station == 0 && ring == 3){
+		int realID = (cscId-6)+6*sector+3*subSector;
+		if(realID>36) realID -= 36;
+		if(endcap == 0) { lct_MEplus13  -> Fill(realID,bx); csc_strip_MEplus13  -> Fill(realID,strip); csc_wire_MEplus13  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus13 -> Fill(realID,bx); csc_strip_MEminus13 -> Fill(realID,strip); csc_wire_MEminus13 -> Fill(realID,keyWire); }
+	      }
+		//ME2/1
+	      if (station == 1 && ring == 1){
+		int realID = cscId+3*sector+2;
+		if(realID>18) realID -= 18;
+		if(endcap == 0) { lct_MEplus21  -> Fill(realID,bx); csc_strip_MEplus21  -> Fill(realID,strip); csc_wire_MEplus21  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus21 -> Fill(realID,bx); csc_strip_MEminus21 -> Fill(realID,strip); csc_wire_MEminus21 -> Fill(realID,keyWire); }
+	      }
+		//ME2/2
+	      if (station == 1 && ring == 2){
+		int realID = (cscId-3)+6*sector+3;
+		if(realID>36) realID -= 36;
+		if(endcap == 0) { lct_MEplus22  -> Fill(realID,bx); csc_strip_MEplus22  -> Fill(realID,strip); csc_wire_MEplus22  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus22 -> Fill(realID,bx); csc_strip_MEminus22 -> Fill(realID,strip); csc_wire_MEminus22 -> Fill(realID,keyWire); }
+	      }
+		//ME3/1
+	      if (station == 2 && ring == 1){
+		int realID = cscId+3*sector+2;
+		if(realID>18) realID -= 18;
+		if(endcap == 0) { lct_MEplus31  -> Fill(realID,bx); csc_strip_MEplus31  -> Fill(realID,strip); csc_wire_MEplus31  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus31 -> Fill(realID,bx); csc_strip_MEminus31 -> Fill(realID,strip); csc_wire_MEminus31 -> Fill(realID,keyWire); }
+	      }
+		//ME3/2
+	      if (station == 2 && ring == 2){
+		int realID = (cscId-3)+6*sector+3;
+		if(realID>36) realID -= 36;
+		if(endcap == 0) { lct_MEplus32  -> Fill(realID,bx); csc_strip_MEplus32  -> Fill(realID,strip); csc_wire_MEplus32  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus32 -> Fill(realID,bx); csc_strip_MEminus32 -> Fill(realID,strip); csc_wire_MEminus32 -> Fill(realID,keyWire); }
+	      }
+		//ME4/1
+	      if (station == 3 && ring == 1){
+		int realID = cscId+3*sector+2;
+		if(realID>18) realID -= 18;
+		if(endcap == 0) { lct_MEplus41  -> Fill(realID,bx); csc_strip_MEplus41  -> Fill(realID,strip); csc_wire_MEplus41  -> Fill(realID,keyWire);}
+		if(endcap == 1) { lct_MEminus41 -> Fill(realID,bx); csc_strip_MEminus41 -> Fill(realID,strip); csc_wire_MEminus41 -> Fill(realID,keyWire);}
+	      }
+		//ME4/2
+	      if (station == 3 && ring == 2){
+		int realID = (cscId-3)+6*sector+3;
+		if(realID>36) realID -= 36;
+		if(endcap == 0) { lct_MEplus42  -> Fill(realID,bx); csc_strip_MEplus42  -> Fill(realID,strip); csc_wire_MEplus42  -> Fill(realID,keyWire); }
+		if(endcap == 1) { lct_MEminus42 -> Fill(realID,bx); csc_strip_MEminus42 -> Fill(realID,strip); csc_wire_MEminus42 -> Fill(realID,keyWire); }
+	      }
+
+
+
 	      // BX plots
 	      // minus side
-	      if (endcap == 0 && station == 0 && ring == 1) { csctflcts -> Fill(bx, 8.5); }
-	      if (endcap == 0 && station == 0 && ring == 2) { csctflcts -> Fill(bx, 7.5); }
-	      if (endcap == 0 && station == 0 && ring == 3) { csctflcts -> Fill(bx, 6.5); }
-	      if (endcap == 0 && station == 1 && ring == 1) { csctflcts -> Fill(bx, 5.5); }
-	      if (endcap == 0 && station == 1 && ring == 2) { csctflcts -> Fill(bx, 4.5); }
-	      if (endcap == 0 && station == 2 && ring == 1) { csctflcts -> Fill(bx, 3.5); }
-	      if (endcap == 0 && station == 2 && ring == 2) { csctflcts -> Fill(bx, 2.5); }
-	      if (endcap == 0 && station == 3 && ring == 1) { csctflcts -> Fill(bx, 1.5); }
-	      if (endcap == 0 && station == 3 && ring == 2) { csctflcts -> Fill(bx, 0.5); }
+	      if (endcap == 1 && station == 0 && ring == 1) { csctflcts -> Fill(bx, 8.5); }
+	      if (endcap == 1 && station == 0 && ring == 2) { csctflcts -> Fill(bx, 7.5); }
+	      if (endcap == 1 && station == 0 && ring == 3) { csctflcts -> Fill(bx, 6.5); }
+	      if (endcap == 1 && station == 1 && ring == 1) { csctflcts -> Fill(bx, 5.5); }
+	      if (endcap == 1 && station == 1 && ring == 2) { csctflcts -> Fill(bx, 4.5); }
+	      if (endcap == 1 && station == 2 && ring == 1) { csctflcts -> Fill(bx, 3.5); }
+	      if (endcap == 1 && station == 2 && ring == 2) { csctflcts -> Fill(bx, 2.5); }
+	      if (endcap == 1 && station == 3 && ring == 1) { csctflcts -> Fill(bx, 1.5); }
+	      if (endcap == 1 && station == 3 && ring == 2) { csctflcts -> Fill(bx, 0.5); }
 	      
 	      // plus side
-	      if (endcap == 1 && station == 0 && ring == 1) { csctflcts -> Fill(bx, 9.5); }
-	      if (endcap == 1 && station == 0 && ring == 2) { csctflcts -> Fill(bx, 10.5); }
-	      if (endcap == 1 && station == 0 && ring == 3) { csctflcts -> Fill(bx, 11.5); }
-	      if (endcap == 1 && station == 1 && ring == 1) { csctflcts -> Fill(bx, 12.5); }
-	      if (endcap == 1 && station == 1 && ring == 2) { csctflcts -> Fill(bx, 13.5); }
-	      if (endcap == 1 && station == 2 && ring == 1) { csctflcts -> Fill(bx, 14.5); }
-	      if (endcap == 1 && station == 2 && ring == 2) { csctflcts -> Fill(bx, 15.5); }
-	      if (endcap == 1 && station == 3 && ring == 1) { csctflcts -> Fill(bx, 16.5); }
-	      if (endcap == 1 && station == 3 && ring == 2) { csctflcts -> Fill(bx, 17.5); }
+	      if (endcap == 0 && station == 0 && ring == 1) { csctflcts -> Fill(bx, 9.5); }
+	      if (endcap == 0 && station == 0 && ring == 2) { csctflcts -> Fill(bx, 10.5); }
+	      if (endcap == 0 && station == 0 && ring == 3) { csctflcts -> Fill(bx, 11.5); }
+	      if (endcap == 0 && station == 1 && ring == 1) { csctflcts -> Fill(bx, 12.5); }
+	      if (endcap == 0 && station == 1 && ring == 2) { csctflcts -> Fill(bx, 13.5); }
+	      if (endcap == 0 && station == 2 && ring == 1) { csctflcts -> Fill(bx, 14.5); }
+	      if (endcap == 0 && station == 2 && ring == 2) { csctflcts -> Fill(bx, 15.5); }
+	      if (endcap == 0 && station == 3 && ring == 1) { csctflcts -> Fill(bx, 16.5); }
+	      if (endcap == 0 && station == 3 && ring == 2) { csctflcts -> Fill(bx, 17.5); }
 	
 	      // only for ME1/1
 	      if(station == 0 && ring == 1){
